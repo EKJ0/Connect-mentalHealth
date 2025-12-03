@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Connect page-specific CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/journal.css') }}">
+
+<h2>Your Journal</h2>
+
+<form action="/journal/add" method="POST" class="journal-box">
+
+    <div class="mb-3">
+        <label>Title</label>
+        <input type="text" name="title">
+    </div>
+
+    <div class="mb-3">
+        <label>Entry</label>
+        <textarea name="content" rows="4"></textarea>
+    </div>
+
+    <button class="btn-add">Add Entry</button>
+</form>
+
+<h3 class="mt-5">Past Entries</h3>
+
+{% for entry in entries %}
+<div class="entry-card">
+    <h5>{{ entry.title }}</h5>
+    <p>{{ entry.content }}</p>
+    <small>{{ entry.date }}</small>
+
+    <a href="/journal/delete/{{ entry._id }}" class="delete-btn">Delete</a>
+</div>
+{% endfor %}
+
+{% endblock %}

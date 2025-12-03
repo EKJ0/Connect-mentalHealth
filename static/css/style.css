@@ -1,0 +1,35 @@
+/* GLOBAL LAYOUT */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+    opacity: 0.8;
+}
+
+/* HEADINGS */
+h2, h3, h4 {
+    font-weight: 600;
+}
+
+/* GLOBAL CARD STYLE */
+.card, .entry-card, .settings-box, .journal-box,
+.account-box, .chat-box {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* GLOBAL FORMS */
+input, textarea, button {
+    font-family: inherit;
+}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Connect page-specific CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mood.css') }}">
+
+<h2>Your Mood Today</h2>
+
+<div class="mood-buttons">
+    <form action="/mood/save" method="POST">
+        <button name="mood" value="Happy" class="mood-btn happy">😊 Happy</button>
+        <button name="mood" value="Sad" class="mood-btn sad">😢 Sad</button>
+        <button name="mood" value="Stressed" class="mood-btn stressed">😟 Stressed</button>
+        <button name="mood" value="Angry" class="mood-btn angry">😡 Angry</button>
+    </form>
+</div>
+
+<h3 class="mt-5">Mood History</h3>
+
+<ul class="mood-list">
+    {% for mood in moods %}
+        <li>
+            <strong>{{ mood.mood }}</strong> - {{ mood.timestamp }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

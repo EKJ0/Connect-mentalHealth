@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Connect the dashboard CSS file -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<h2>Welcome, {{ username }}</h2>
+
+<div class="dashboard-container">
+
+    <a href="/mood" class="dashboard-card">
+        <h4>Mood Tracker</h4>
+        <p>Track your emotional journey.</p>
+    </a>
+
+    <a href="/journal" class="dashboard-card">
+        <h4>Journal</h4>
+        <p>Save your thoughts privately.</p>
+    </a>
+
+    <a href="/chat" class="dashboard-card">
+        <h4>Chat</h4>
+        <p>Talk with other users.</p>
+    </a>
+
+</div>
+
+{% endblock %}

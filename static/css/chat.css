@@ -1,0 +1,39 @@
+.chat-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.chat-message {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.chat-message strong {
+    color: #0d6efd;
+}
+
+.chat-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-form input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+}
+
+.chat-form button {
+    padding: 12px 20px;
+    background: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+}

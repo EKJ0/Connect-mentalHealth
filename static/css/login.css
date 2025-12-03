@@ -1,0 +1,26 @@
+.login-box {
+    width: 380px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: #0d6efd;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: bold;
+}

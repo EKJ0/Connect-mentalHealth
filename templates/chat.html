@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Page-specific stylesheet -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+
+<h2>Community Chat</h2>
+
+<div class="chat-box">
+    {% for msg in messages %}
+        <p class="chat-message">
+            <strong>{{ msg.user }}:</strong> {{ msg.message }}
+        </p>
+    {% endfor %}
+</div>
+
+<form action="/chat/send" method="POST" class="chat-form">
+    <input type="text" name="message" placeholder="Type your message..." required>
+    <button>Send</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+.account-box {
+    background: white;
+    padding: 25px;
+    width: 500px;
+    margin: 20px auto;
+    border-radius: 12px;
+}
+
+.account-box input,
+.account-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+}
+
+.save-btn {
+    width: 100%;
+    padding: 12px;
+    background: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
+
+.delete-box {
+    width: 500px;
+    margin: 20px auto;
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 12px;
+    background: #dc3545;
+    color: white;
+    border-radius: 8px;
+    border: none;
+}
