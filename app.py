@@ -12,7 +12,7 @@ from routes.settings_routes import settings_bp
 app = Flask(__name__)
 app.secret_key = "thisissecret"
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mindconnect"
+app.config["MONGO_URI"] = "mongodb+srv://emmakrj02_db:yvzZ5x8mSufmQWE2@connect-mind.rzqugrq.mongodb.net/mindconnect?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)

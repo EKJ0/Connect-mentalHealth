@@ -77,3 +77,12 @@ def signup():
 
     # Redirect to login page after success
     return redirect("/")
+
+
+# ----------------------
+# LOGOUT
+# ----------------------
+@auth_bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
