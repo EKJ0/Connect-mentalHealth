@@ -1,6 +1,8 @@
+import os
 from flask import Flask
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
 from routes.auth_routes import auth_bp
 from routes.dashboard_routes import dashboard_bp
 from routes.account_routes import account_bp
@@ -9,10 +11,12 @@ from routes.mood_routes import mood_bp
 from routes.journal_routes import journal_bp
 from routes.settings_routes import settings_bp
 
-app = Flask(__name__)
-app.secret_key = "thisissecret"
+load_dotenv()
 
-app.config["MONGO_URI"] = "mongodb+srv://emmakrj02_db:yvzZ5x8mSufmQWE2@connect-mind.rzqugrq.mongodb.net/mindconnect?retryWrites=true&w=majority"
+app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
+
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
