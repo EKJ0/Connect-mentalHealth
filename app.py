@@ -13,10 +13,19 @@ from routes.settings_routes import settings_bp
 
 load_dotenv()
 
-app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+# Validate required environment variables
+SECRET_KEY = os.getenv("SECRET_KEY")
+MONGO_URI = os.getenv("MONGO_URI")
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY environment variable is not set. Please add it to your .env file.")
+if not MONGO_URI:
+    raise ValueError("MONGO_URI environment variable is not set. Please add it to your .env file.")
+
+app = Flask(__name__)
+app.secret_key = SECRET_KEY
+
+app.config["MONGO_URI"] = MONGO_URI
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
