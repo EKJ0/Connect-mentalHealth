@@ -43,5 +43,61 @@ app.register_blueprint(mood_bp)
 app.register_blueprint(journal_bp)
 app.register_blueprint(settings_bp)
 
+def initialize_database():
+    """Initialize database with default data if collections don't exist."""
+    db = mongo.db
+
+    # USERS COLLECTION (creates default admin)
+    if "users" not in db.list_collection_names():
+        db.users.insert_one({
+            "username": "admin",
+            "password": bcrypt.generate_password_hash("Admin123!").decode("utf-8"),
+            "name": "Administrator",
+            "bio": ""
+        })
+        print("👤 Default admin user created! (username: admin, password: Admin123!)")
+
+    # SETTINGS COLLECTION (default settings)
+    if "settings" not in db.list_collection_names():
+        db.settings.insert_one({
+            "username": "admin",
+            "theme": "light",
+            "notifications": True
+        })
+        print("⚙️ Default settings added!")
+
+    # MOODS COLLECTION (sample mood entry)
+    if "moods" not in db.list_collection_names():
+        db.moods.insert_one({
+            "username": "admin",
+            "mood": "happy",
+            "date": "2025-01-01"
+        })
+        print("😊 Sample mood entry created!")
+
+    # JOURNAL COLLECTION (sample journal entry)
+    if "journal" not in db.list_collection_names():
+        db.journal.insert_one({
+            "username": "admin",
+            "title": "Welcome Journal",
+            "content": "This is your first journal entry!",
+            "date": "2025-01-01"
+        })
+        print("📘 Initial journal entry added!")
+
+    # CHAT / MESSAGES COLLECTION (demo message)
+    if "messages" not in db.list_collection_names():
+        db.messages.insert_one({
+            "from": "admin",
+            "to": "admin",
+            "content": "Hello! This is the first message.",
+            "timestamp": "2025-01-01T00:00:00"
+        })
+        print("💬 Initial message created!")
+
+    print("✨ ALL collections initialized successfully!")
+
 if __name__ == "__main__":
+    with app.app_context():
+        initialize_database()
     app.run(debug=True)
