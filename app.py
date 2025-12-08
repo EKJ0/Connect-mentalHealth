@@ -10,6 +10,8 @@ from routes.chat_routes import chat_bp
 from routes.mood_routes import mood_bp
 from routes.journal_routes import journal_bp
 from routes.settings_routes import settings_bp
+import certifi
+
 
 load_dotenv()
 
@@ -25,7 +27,7 @@ if not MONGO_URI:
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
 
-app.config["MONGO_URI"] = MONGO_URI
+app.config["MONGO_URI"] = MONGO_URI + f"&tlsCAFile={certifi.where()}"
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
